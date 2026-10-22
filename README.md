@@ -33,6 +33,15 @@ The tests also run on every push with GitHub Actions (`.github/workflows/tests.y
 
 The checkout test is split into `test.step`s, so the HTML report shows exactly which step failed.
 
+## Evidence
+
+Every test records a video and a final screenshot (`video: 'on'`, `screenshot: 'on'`). They're attached to each test in the HTML report, and the key ones are copied to `docs/evidence/`:
+
+- `TC-CHECKOUT-01-onesie-checkout.webm`: video of the full Onesie checkout (open in Chrome)
+- `TC-CHECKOUT-01-order-complete.png`: the confirmation page at the end of the checkout
+
+![Order complete](docs/evidence/TC-CHECKOUT-01-order-complete.png)
+
 ## Structure
 
 ```
@@ -45,6 +54,7 @@ fixtures/index.ts           injects page objects into tests, plus a `loggedIn` f
 data/users.ts               demo users, product and buyer data in one place
 tests/                      login.spec.ts, checkout.spec.ts
 docs/last-run.txt           console output of the latest run
+docs/evidence/              checkout video and screenshots
 playwright-report/          HTML report of the latest run (open index.html)
 ```
 
